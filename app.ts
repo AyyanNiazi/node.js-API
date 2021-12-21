@@ -1,9 +1,9 @@
 // import * as dotenv from "dotenv";
-const express = require("express")
+import express from 'express'
 const  helmet = require("helmet");
 
 // Routes
-const UserRouter = require('./src/Routes/User')
+// const UserRouter = require('./src/Routes/User')
 // dotenv.config();
 
 
@@ -22,7 +22,9 @@ const UserRouter = require('./src/Routes/User')
 //      res.send('get')
 //  })
 
-app.use('/', UserRouter)
+app.use('/', (req, res) => {
+  res.send("User is here")
+})
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
