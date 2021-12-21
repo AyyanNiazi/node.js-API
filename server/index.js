@@ -4,11 +4,11 @@ const app = express()
 const PORT = 5000;
 
 app.get('/', (req, res) => {
-    res.send("Gist Swap Api will be listed here")
+    res.send("Gist Swap Api will be listed here on NODE server")
 })
 
 app.get('/user', (req, res) => {
-    res.send("I'm dummy User")
+    res.send("I'm dummy User from Node Server")
 })
 
 app.listen(process.env.PORT || PORT, () => {
