@@ -1,28 +1,28 @@
-import * as dotenv from "dotenv";
-import express from "express";
-import helmet from "helmet";
+// import * as dotenv from "dotenv";
+const express = require("express")
+const  helmet = require("helmet");
 
 // Routes
-import  UserRouter from './src/Routes/User'
-dotenv.config();
+const UserRouter = require('./src/Routes/User')
+// dotenv.config();
 
 
-if (!process.env.PORT) {
-    process.exit(1);
- }
+// if (!process.env.PORT) {
+//     process.exit(1);
+//  }
  
- const PORT: number = parseInt(process.env.PORT as string, 10);
+ const PORT = 5000;
  
  const app = express();
 
  app.use(helmet());
  app.use(express.json());
 
- app.get('/', (req, res) => {
-     res.send('get')
- })
+//  app.get('/', (req, res) => {
+//      res.send('get')
+//  })
 
-app.use('/api/user', UserRouter)
+app.use('/', UserRouter)
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

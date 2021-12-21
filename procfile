@@ -1,1 +1,1 @@
-web:node app.ts
+web:ts-node-dev --respawn --pretty --transpile-only app.ts
