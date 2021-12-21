@@ -4,7 +4,7 @@ const app = express()
 const PORT = 5000;
 
 app.get('/', (req, res) => {
-    res.send("Hello worlds")
+    res.send("Gist Swap Api will be listed here")
 })
 
 app.get('/user', (req, res) => {
