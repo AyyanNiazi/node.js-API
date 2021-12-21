@@ -20,6 +20,9 @@ if (!process.env.PORT) {
  app.use(cors());
  app.use(express.json());
 
+ app.get('/', (req, res) => {
+     res.send('get')
+ })
 
 app.use('/api/user', UserRouter)
 
