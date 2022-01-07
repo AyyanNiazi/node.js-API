@@ -40,8 +40,8 @@ exports.getCollections = (req, res, next) => {
     .exec()
     .then(data => {
         const response = {
-            count: data.length,
-            products: data
+            total: data.length,
+            data
         }
         res.status(200).json(response)
     })
