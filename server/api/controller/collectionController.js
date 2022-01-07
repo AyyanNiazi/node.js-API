@@ -35,18 +35,17 @@ const upload = multer({
 })
 
 exports.getCollections = (req, res, next) => {
-    console.log(res.send("Collection"))
-    // Product.find()
+    Collection.find()
     // .select("name price _id") // select use to preview which key value I want to fetch from db
-    // .exec()
-    // .then(data => {
-    //     const response = {
-    //         count: data.length,
-    //         products: data
-    //     }
-    //     res.status(200).json(response)
-    // })
-    // .catch(err => console.error(err))
+    .exec()
+    .then(data => {
+        const response = {
+            count: data.length,
+            products: data
+        }
+        res.status(200).json(response)
+    })
+    .catch(err => console.error(err))
 }
 
 exports.getCollectionById = (req, res, next) => {
