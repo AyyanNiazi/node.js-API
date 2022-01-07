@@ -13,7 +13,7 @@ const orderRoutes = require('./api/routes/orders')
 const collectionRoutes = require('./api/routes/collections')
 
 const PORT = 5000;
-const BASE_API = '/api/vi'
+const BASE_API = '/api/v1'
 
 mongoose.connect(`mongodb+srv://shalli:${process.env.MONGODB_DB_ATLAS_PW}@cluster0.xisoi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
 
