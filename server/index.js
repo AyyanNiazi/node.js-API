@@ -1,15 +1,24 @@
 const express = require("express")
 const app = express()
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+
+// Body parser
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+// Routes
+const productRoutes = require('./api/routes/products')
+const orderRoutes = require('./api/routes/orders')
+const collectionRoutes = require('./api/routes/collections')
 
 const PORT = 5000;
 
-app.get('/api', (req, res) => {
-    res.send("Gist Swap Api will be listed here on NODE server")
-})
+mongoose.connect(`mongodb+srv://shalli:${process.env.MONGODB_DB_ATLAS_PW}@cluster0.xisoi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
 
-app.get('/api/user', (req, res) => {
-    res.send("I'm dummy User from Node Server")
-})
+app.use('/products', productRoutes)
+app.use('/orders', orderRoutes)
+app.use('/collections', collectionRoutes)
 
 app.listen(process.env.PORT || PORT, () => {
     console.log('server is running on 5000')

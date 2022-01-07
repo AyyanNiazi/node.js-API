@@ -1,0 +1,8 @@
+{
+    "env" : {
+        "MONGODB_DB_ATLAS_PW": "%23Pakistan123",
+        "CLOUDINARY_API_SECRET": "vNhHl2-F-E8LL72D97hizPNcGp8", 
+        "CLOUDINARY_API_KEY": "625938435611817",
+        "CLOUDINARY_CLOUD_NAME": "dooda"
+    }
+}
