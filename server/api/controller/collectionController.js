@@ -185,7 +185,10 @@ exports.getCollectionToken = (req, res) => {
             .exec()
             .then(data => {
                 res.status(200).json({
-                    data
+                    data: {
+                        ...data,
+                        collection: data.myCollection
+                    }
                 })
             })
         })
