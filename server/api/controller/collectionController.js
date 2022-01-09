@@ -50,7 +50,7 @@ exports.getCollections = (req, res, next) => {
 
 exports.getCollectionById = (req, res, next) => {
     // console.log(res.send(req.params.collectionId))
-    Collection.findById(req.params.collectionId)
+    Collection.findOne({address: req.params.collectionId})
     // .select("name price _id") // select use to preview which key value I want to fetch from db
     .exec()
     .then(data => {
