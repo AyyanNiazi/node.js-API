@@ -36,5 +36,9 @@ router.post('/distribution', collection_controller.postCollectionDistribution)
 // get Collection Distribution
 router.get('/:address/distribution', collection_controller.getCollectionDistribution)
 
+// post Collection Token
+router.post('/:address/token', collection_controller.postCollectionToken)
+// get Collection Toen
+router.get('/:address/token/:tokenId', collection_controller.getCollectionToken)
 
 module.exports = router
