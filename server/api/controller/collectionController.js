@@ -181,6 +181,22 @@ exports.getCollectionToken = (req, res) => {
     Collection.findOne({ address: req.params.address })
         .exec()
         .then(response => {
+            Token.find()
+            .exec()
+            .then(data => {
+                res.status(200).json({
+                    data
+                })
+            })
+        })
+        .catch(err => res.status(500).json(err))
+}
+
+exports.getCollectionTokenById = (req, res) => {
+    console.log(req.body)
+    Collection.findOne({ address: req.params.address })
+        .exec()
+        .then(response => {
             Token.findOne({tokenId: req.params.tokenId })
             .exec()
             .then(data => {
