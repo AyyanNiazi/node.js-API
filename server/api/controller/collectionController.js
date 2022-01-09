@@ -1,6 +1,7 @@
 const multer = require('multer')
 // Models
 const Collection = require('../models/collection')
+const Distribution = require('../models/distribution')
 
 // Cloudinary Stuff
 const cloudinary = require('cloudinary').v2;
@@ -93,4 +94,31 @@ exports.postCollection = (req, res, next) => {
     //         error
     //     })
     // })
+}
+
+exports.postCollectionDistribution = (req, res, next) => {
+    console.log({body:req.body})
+    Collection.findOne({address:req.body?.address})
+    .exec()
+    .then(response => {
+        const distribution =  new Distribution({
+           ...req.body
+          });
+          distribution.save()
+          .then(data => res.status(201).json({data, response}))
+    })
+    .catch(err => res.status(500).send(err))
+}
+
+
+exports.getCollectionDistribution = (req, res, next) => {
+    Distribution.findOne({address:req.params.address})
+    .exec()
+    .then(response => {
+        res.status(200).json({
+            data:response.distribution,
+            total: 8
+        })
+    })
+    .catch(err => res.status(500).send(err))
 }

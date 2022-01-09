@@ -31,5 +31,10 @@ router.get('/:collectionId', collection_controller.getCollectionById)
 // post Collections
 router.post('/', upload.none(), collection_controller.postCollection)
 
+// post Collection Distribution
+router.post('/distribution', collection_controller.postCollectionDistribution)
+// get Collection Distribution
+router.get('/:address/distribution', collection_controller.getCollectionDistribution)
+
 
 module.exports = router
