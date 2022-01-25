@@ -185,7 +185,10 @@ exports.getCollectionToken = (req, res) => {
             .exec()
             .then(data => {
                 res.status(200).json({
-                    data
+                    data: {
+                        ...data?._doc,
+                        collection: response
+                    }
                 })
             })
         })
@@ -196,14 +199,14 @@ exports.getCollectionTokenById = (req, res) => {
     console.log(req.body)
     Collection.findOne({ address: req.params.address })
         .exec()
-        .then(response => {
+        .then(collection => {
             Token.findOne({tokenId: req.params.tokenId })
             .exec()
             .then(data => {
                 res.status(200).json({
                     data: {
                         ...data?._doc,
-                        collection: data.myCollection
+                        collection: collection
                     }
                 })
             })
